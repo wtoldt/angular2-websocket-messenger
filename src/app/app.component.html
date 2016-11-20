@@ -1,0 +1,66 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+	<header class="mdl-layout__header">
+		<div class="mdl-layout__header-row">
+			<!-- Title -->
+			<span class="mdl-layout-title">Messages</span>
+			<!-- Add spacer, to align navigation to the right -->
+			<div class="mdl-layout-spacer"></div>
+			<!-- Navigation. We hide it in small screens. -->
+			<nav class="mdl-navigation mdl-layout--large-screen-only">
+				<a class="mdl-navigation__link" href="">Link</a>
+				<a class="mdl-navigation__link" href="">Link</a>
+				<a class="mdl-navigation__link" href="">Link</a>
+				<a class="mdl-navigation__link" href="">Link</a>
+			</nav>
+		</div>
+	</header>
+	<div class="mdl-layout__drawer">
+		<span class="mdl-layout-title">Title</span>
+		<nav class="mdl-navigation">
+			<a class="mdl-navigation__link" href="">Link</a>
+			<a class="mdl-navigation__link" href="">Link</a>
+			<a class="mdl-navigation__link" href="">Link</a>
+			<a class="mdl-navigation__link" href="">Link</a>
+		</nav>
+	</div>
+	<main class="mdl-layout__content">
+		<div class="page-content" style="padding-top:20px">
+
+			<div id="messages" style="overflow-y:scroll">
+
+				<div
+					class="demo-card-wide mdl-card mdl-shadow--2dp"
+					style="margin:auto; margin-bottom:15px;"
+					*ngFor="let message of messages">
+
+					<div class="mdl-card__title">
+						<h2 class="mdl-card__title-text">{{message.name}}</h2>
+					</div>
+					<div class="mdl-card__supporting-text">
+						{{message.text}}
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<footer #footer class="mdl-mini-footer" style="position: fixed; width: 100%; bottom: 0px; z-index:10">
+			<form>
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<input class="mdl-textfield__input" type="text" id="nameInput" #name>
+					<label class="mdl-textfield__label" for="nameInput">Name...</label>
+				</div>
+
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<input class="mdl-textfield__input" type="text" id="textInput" #text>
+					<label class="mdl-textfield__label" for="textInput">Text...</label>
+				</div>
+				<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect" (click)="onSubmit(name, text)">
+					<i class="material-icons">send</i>
+				</button>
+			</form>
+		</footer>
+	</main>
+</div>
+
+
